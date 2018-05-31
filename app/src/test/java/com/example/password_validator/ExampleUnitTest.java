@@ -23,22 +23,37 @@ public class ExampleUnitTest {
     public void afterEachTest(){}
 
     @Test
+    public void tooShort(){
+        assertFalse(v.testPassword("pass1@"));
+    }
+
+    @Test
+    public void tooLong(){
+        assertFalse(v.testPassword("passWord1@passWord1@passWord1@"));
+    }
+
+    @Test
     public void allUpper(){
-        assertFalse(v.testPassword("PASSWORD"));
+        assertFalse(v.testPassword("PASSWORD1@"));
     }
 
     @Test
     public void allLower(){
-        assertFalse(v.testPassword("password"));
+        assertFalse(v.testPassword("password1@"));
     }
 
     @Test
-    public void tooShort(){
-        assertFalse(v.testPassword("pass"));
+    public void noNumber(){
+        assertFalse(v.testPassword("passWord@"));
+    }
+
+    @Test
+    public void noSpecial(){
+        assertFalse(v.testPassword("passWord1"));
     }
 
     @Test
     public void allRight(){
-        assertTrue(v.testPassword("PassWords"));
+        assertTrue(v.testPassword("PassWord1@"));
     }
 }
