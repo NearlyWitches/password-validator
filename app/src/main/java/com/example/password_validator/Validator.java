@@ -1,7 +1,5 @@
 package com.example.password_validator;
 
-import java.util.regex.Pattern;
-
 public class Validator {
     public boolean testPassword(String s){
         String upperCase = ".*[A-Z].*";
