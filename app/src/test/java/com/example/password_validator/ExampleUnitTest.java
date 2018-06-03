@@ -24,36 +24,36 @@ public class ExampleUnitTest {
 
     @Test
     public void tooShort(){
-        assertFalse(v.testPassword("pass1@"));
+        assertEquals("Password has to be 8-16 characters.", v.testPassword("pass1@"));
     }
 
     @Test
     public void tooLong(){
-        assertFalse(v.testPassword("passWord1@passWord1@passWord1@"));
+        assertEquals("Password has to be 8-16 characters.", v.testPassword("passWord1@passWord1@passWord1@"));
     }
 
     @Test
     public void allUpper(){
-        assertFalse(v.testPassword("PASSWORD1@"));
+        assertEquals("Not Strong!", v.testPassword("PASSWORD1@"));
     }
 
     @Test
     public void allLower(){
-        assertFalse(v.testPassword("password1@"));
+        assertEquals("Not Strong!", v.testPassword("password1@"));
     }
 
     @Test
     public void noNumber(){
-        assertFalse(v.testPassword("passWord@"));
+        assertEquals("Not Strong!", v.testPassword("passWord@"));
     }
 
     @Test
     public void noSpecial(){
-        assertFalse(v.testPassword("passWord1"));
+        assertEquals("Not Strong!", v.testPassword("passWord1"));
     }
 
     @Test
     public void allRight(){
-        assertTrue(v.testPassword("PassWord1@"));
+        assertEquals("Good!", v.testPassword("PassWord1@"));
     }
 }

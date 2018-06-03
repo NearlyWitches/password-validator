@@ -1,24 +1,24 @@
 package com.example.password_validator;
 
 public class Validator {
-    public boolean testPassword(String s){
+    public String testPassword(String s){
         String upperCase = ".*[A-Z].*";
         String lowerCase = ".*[a-z].*";
         String numbers = ".*[0-9].*";
         String specialChar = ".*[!@#$%^&*(){}|?<>,.].*";
 
         if (s.length() < 8 || s.length() > 16){
-            return false;
+            return "Password has to be 8-16 characters.";
         }else if (!s.matches(upperCase)){
-            return false;
+            return "Not Strong!";
         }else if (!s.matches(lowerCase)){
-            return false;
+            return "Not Strong!";
         }else if (!s.matches(numbers)){
-            return false;
+            return "Not Strong!";
         }else if (!s.matches(specialChar)){
-            return false;
+            return "Not Strong!";
         }
 
-        return true;
+        return "Good!";
     }
 }
